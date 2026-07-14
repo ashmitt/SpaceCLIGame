@@ -1,0 +1,87 @@
+# ColonyOS Default Configuration
+
+simulation:
+  db_path: "colony.db"
+  tick_interval_seconds: 1.0
+  max_retries: 3
+  aging_threshold_ticks: 20
+  round_robin_quantum: 3
+
+difficulty:
+  disaster_check_interval: 15
+  disaster_probability: 0.15
+
+starting_resources:
+  Water: 200.0
+  Food: 200.0
+  Oxygen: 500.0
+  Power: 100.0
+  IronOre: 50.0
+  SolarCells: 5.0
+
+resource_capacities:
+  Water: 1000.0
+  Food: 1000.0
+  Oxygen: 1000.0
+  Power: 200.0
+  IronOre: 500.0
+  SolarCells: 50.0
+
+starting_workers:
+  - name: "Alice"
+    skills:
+      construction: 2
+      agriculture: 1
+      engineering: 1
+  - name: "Bob"
+    skills:
+      construction: 1
+      agriculture: 1
+      engineering: 2
+  - name: "Charlie"
+    skills:
+      construction: 1
+      agriculture: 2
+      engineering: 1
+
+buildings:
+  COMMAND_HUB:
+    name: "Central Command Hub"
+    construction_cost: {}
+    power_impact: -10.0
+    production_rate: {}
+    max_durability: 200
+  SOLAR_ARRAY:
+    name: "Solar Array Grid"
+    construction_cost:
+      IronOre: 50.0
+      SolarCells: 2.0
+    power_impact: 40.0 # positive = generation
+    production_rate: {}
+    max_durability: 100
+  HYDROPONICS_DOME:
+    name: "Hydroponics Dome"
+    construction_cost:
+      IronOre: 80.0
+      Water: 10.0
+    power_impact: -20.0
+    production_rate:
+      Food: 4.0
+    max_durability: 120
+  WATER_EXTRACTOR:
+    name: "Water Extractor Node"
+    construction_cost:
+      IronOre: 60.0
+    power_impact: -15.0
+    production_rate:
+      Water: 8.0
+    max_durability: 100
+  LIFE_SUPPORT:
+    name: "Life Support Unit"
+    construction_cost:
+      IronOre: 120.0
+      SolarCells: 4.0
+    power_impact: -30.0
+    production_rate:
+      Oxygen: 10.0
+    max_durability: 150
